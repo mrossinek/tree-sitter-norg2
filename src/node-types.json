@@ -1,0 +1,99 @@
+[
+  {
+    "type": "carryover_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "document",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "quote",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "quote1",
+          "named": true
+        },
+        {
+          "type": "quote2",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote1",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "carryover_tag",
+          "named": true
+        },
+        {
+          "type": "quote2",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote2",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "carryover_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "> ",
+    "named": false
+  },
+  {
+    "type": ">> ",
+    "named": false
+  },
+  {
+    "type": "_line_break",
+    "named": false
+  },
+  {
+    "type": "_word",
+    "named": false
+  },
+  {
+    "type": "tag_name",
+    "named": false
+  }
+]
