@@ -152,8 +152,60 @@
           },
           "named": false,
           "value": "_punctuation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bold"
         }
       ]
+    },
+    "bold": {
+      "type": "PREC_LEFT",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "*"
+            }
+          },
+          {
+            "type": "PREC_RIGHT",
+            "value": 1,
+            "content": {
+              "type": "REPEAT1",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_paragraph_element"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "line_break"
+                    },
+                    "named": false,
+                    "value": "_line_break"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "*"
+            }
+          }
+        ]
+      }
     },
     "carryover_tag": {
       "type": "SEQ",

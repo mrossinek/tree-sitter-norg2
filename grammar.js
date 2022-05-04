@@ -74,6 +74,23 @@ module.exports = grammar({
             alias($.word, "_word"),
             alias($.space, "_space"),
             alias($.punctuation, "_punctuation"),
+            $.bold,
+        ),
+
+        bold: $ =>
+        prec.left(3,
+            seq(
+                token.immediate('*'),
+                prec.right(1,
+                    repeat1(
+                        choice(
+                            $._paragraph_element,
+                            alias($.line_break, "_line_break"),
+                        ),
+                    ),
+                ),
+                token.immediate('*'),
+            ),
         ),
 
         carryover_tag: $ =>

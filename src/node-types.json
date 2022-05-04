@@ -5,6 +5,21 @@
     "fields": {}
   },
   {
+    "type": "bold",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bold",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "carryover_tag",
     "named": true,
     "fields": {}
@@ -399,7 +414,17 @@
   {
     "type": "paragraph_segment",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bold",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "quote",
