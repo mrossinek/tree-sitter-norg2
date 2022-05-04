@@ -34,6 +34,22 @@
         {
           "type": "quote2",
           "named": true
+        },
+        {
+          "type": "quote3",
+          "named": true
+        },
+        {
+          "type": "quote4",
+          "named": true
+        },
+        {
+          "type": "quote5",
+          "named": true
+        },
+        {
+          "type": "quote6",
+          "named": true
         }
       ]
     }
@@ -53,12 +69,128 @@
         {
           "type": "quote2",
           "named": true
+        },
+        {
+          "type": "quote3",
+          "named": true
+        },
+        {
+          "type": "quote4",
+          "named": true
+        },
+        {
+          "type": "quote5",
+          "named": true
+        },
+        {
+          "type": "quote6",
+          "named": true
         }
       ]
     }
   },
   {
     "type": "quote2",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "carryover_tag",
+          "named": true
+        },
+        {
+          "type": "quote3",
+          "named": true
+        },
+        {
+          "type": "quote4",
+          "named": true
+        },
+        {
+          "type": "quote5",
+          "named": true
+        },
+        {
+          "type": "quote6",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote3",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "carryover_tag",
+          "named": true
+        },
+        {
+          "type": "quote4",
+          "named": true
+        },
+        {
+          "type": "quote5",
+          "named": true
+        },
+        {
+          "type": "quote6",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote4",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "carryover_tag",
+          "named": true
+        },
+        {
+          "type": "quote5",
+          "named": true
+        },
+        {
+          "type": "quote6",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote5",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "carryover_tag",
+          "named": true
+        },
+        {
+          "type": "quote6",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote6",
     "named": true,
     "fields": {},
     "children": {
@@ -82,6 +214,22 @@
   },
   {
     "type": ">> ",
+    "named": false
+  },
+  {
+    "type": ">>> ",
+    "named": false
+  },
+  {
+    "type": ">>>> ",
+    "named": false
+  },
+  {
+    "type": ">>>>> ",
+    "named": false
+  },
+  {
+    "type": ">>>>>> ",
     "named": false
   },
   {
