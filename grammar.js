@@ -2,6 +2,8 @@ module.exports = grammar({
     name: 'norg2',
 
     conflicts: $ => [
+        [$.paragraph],
+
         [$.quote1],
         [$.quote2],
         [$.quote3],
@@ -14,12 +16,50 @@ module.exports = grammar({
         document: $ => repeat(
             choice(
                 $.quote,
+                $.paragraph,
             ),
         ),
 
         word: $ => /[a-zA-Z0-9]+/,
+        space: $ => /[\t\v ]+/,
 
         line_break: _ => token.immediate('\n'),
+
+        // Any regular text. A paragraph is made up of `paragraph_segment`
+        // objects and line breaks.
+        paragraph: $ =>
+            seq(
+                // optional(
+                //     $.infecting_tag_set,
+                // ),
+                repeat1(
+                    choice(
+                        $.paragraph_segment,
+                        alias($.line_break, "_line_break"),
+                    ),
+                ),
+            ),
+
+        // A paragraph segment can contain any paragraph element.
+        paragraph_segment: $ =>
+        prec.right(0,
+            seq(
+                // optional($.carryover_tag_set),
+                repeat1(
+                    choice(
+                        $._paragraph_element,
+                    ),
+                ),
+            ),
+        ),
+
+        // Any of the following choices are valid IN-LINE elements. Any
+        // multitude of these are combined to form a `paragraph_segment`.
+        _paragraph_element: $ =>
+        choice(
+            alias($.word, "_word"),
+            alias($.space, "_space"),
+        ),
 
         carryover_tag: $ =>
         seq(
@@ -63,12 +103,7 @@ function gen_quote($, level) {
 
         token.immediate('>'.repeat(level) + ' '),
 
-        repeat1(
-            choice(
-                alias($.word, "_word"),
-                alias($.line_break, "_line_break"),
-            ),
-        ),
+        $.paragraph,
 
         repeat(
             choice(

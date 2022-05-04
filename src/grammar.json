@@ -9,6 +9,10 @@
           {
             "type": "SYMBOL",
             "name": "quote"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "paragraph"
           }
         ]
       }
@@ -17,12 +21,86 @@
       "type": "PATTERN",
       "value": "[a-zA-Z0-9]+"
     },
+    "space": {
+      "type": "PATTERN",
+      "value": "[\\t\\v ]+"
+    },
     "line_break": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "STRING",
         "value": "\n"
       }
+    },
+    "paragraph": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "paragraph_segment"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "line_break"
+                },
+                "named": false,
+                "value": "_line_break"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "paragraph_segment": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_paragraph_element"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "_paragraph_element": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "word"
+          },
+          "named": false,
+          "value": "_word"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "space"
+          },
+          "named": false,
+          "value": "_space"
+        }
+      ]
     },
     "carryover_tag": {
       "type": "SEQ",
@@ -113,30 +191,8 @@
           }
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                },
-                "named": false,
-                "value": "_word"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "line_break"
-                },
-                "named": false,
-                "value": "_line_break"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "paragraph"
         },
         {
           "type": "REPEAT",
@@ -191,30 +247,8 @@
           }
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                },
-                "named": false,
-                "value": "_word"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "line_break"
-                },
-                "named": false,
-                "value": "_line_break"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "paragraph"
         },
         {
           "type": "REPEAT",
@@ -265,30 +299,8 @@
           }
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                },
-                "named": false,
-                "value": "_word"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "line_break"
-                },
-                "named": false,
-                "value": "_line_break"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "paragraph"
         },
         {
           "type": "REPEAT",
@@ -335,30 +347,8 @@
           }
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                },
-                "named": false,
-                "value": "_word"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "line_break"
-                },
-                "named": false,
-                "value": "_line_break"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "paragraph"
         },
         {
           "type": "REPEAT",
@@ -401,30 +391,8 @@
           }
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                },
-                "named": false,
-                "value": "_word"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "line_break"
-                },
-                "named": false,
-                "value": "_line_break"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "paragraph"
         },
         {
           "type": "REPEAT",
@@ -463,30 +431,8 @@
           }
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "word"
-                },
-                "named": false,
-                "value": "_word"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "line_break"
-                },
-                "named": false,
-                "value": "_line_break"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "paragraph"
         },
         {
           "type": "REPEAT",
@@ -505,6 +451,9 @@
     }
   ],
   "conflicts": [
+    [
+      "paragraph"
+    ],
     [
       "quote1"
     ],

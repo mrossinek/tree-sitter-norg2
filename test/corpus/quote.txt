@@ -9,7 +9,13 @@ Carryover Tag on quote
 
 (document
   (quote
-    (quote1)
+    (quote1
+      (paragraph
+        (paragraph_segment)))
     (quote1
       (carryover_tag)
-      (quote2))))
+      (paragraph
+        (paragraph_segment))
+      (quote2
+        (paragraph
+          (paragraph_segment))))))
