@@ -13,6 +13,15 @@
           {
             "type": "SYMBOL",
             "name": "paragraph"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "paragraph_break"
+            },
+            "named": false,
+            "value": "_paragraph_break"
           }
         ]
       }
@@ -25,11 +34,42 @@
       "type": "PATTERN",
       "value": "[\\t\\v ]+"
     },
+    "punctuation": {
+      "type": "PATTERN",
+      "value": "[\\.,]"
+    },
     "line_break": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
-        "type": "STRING",
-        "value": "\n"
+        "type": "PATTERN",
+        "value": "[\\n\\r]"
+      }
+    },
+    "paragraph_break": {
+      "type": "PREC_DYNAMIC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "line_break"
+            },
+            "named": false,
+            "value": "_line_break"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "line_break"
+            },
+            "named": false,
+            "value": "_line_break"
+          }
+        ]
       }
     },
     "paragraph": {
@@ -99,6 +139,15 @@
           },
           "named": false,
           "value": "_space"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "punctuation"
+          },
+          "named": false,
+          "value": "_punctuation"
         }
       ]
     },
@@ -168,6 +217,70 @@
         }
       }
     },
+    "quote1_prefix": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "> "
+      }
+    },
+    "quote2_prefix": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ">> "
+      }
+    },
+    "quote3_prefix": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ">>> "
+      }
+    },
+    "quote4_prefix": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ">>>> "
+      }
+    },
+    "quote5_prefix": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ">>>>> "
+      }
+    },
+    "quote6_prefix": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ">>>>>>"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": ">"
+            }
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": " "
+          }
+        }
+      ]
+    },
     "quote1": {
       "type": "SEQ",
       "members": [
@@ -184,15 +297,16 @@
           ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "> "
-          }
+          "type": "SYMBOL",
+          "name": "quote1_prefix"
         },
         {
-          "type": "SYMBOL",
-          "name": "paragraph"
+          "type": "FIELD",
+          "name": "content",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paragraph"
+          }
         },
         {
           "type": "REPEAT",
@@ -240,15 +354,16 @@
           ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ">> "
-          }
+          "type": "SYMBOL",
+          "name": "quote2_prefix"
         },
         {
-          "type": "SYMBOL",
-          "name": "paragraph"
+          "type": "FIELD",
+          "name": "content",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paragraph"
+          }
         },
         {
           "type": "REPEAT",
@@ -292,15 +407,16 @@
           ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ">>> "
-          }
+          "type": "SYMBOL",
+          "name": "quote3_prefix"
         },
         {
-          "type": "SYMBOL",
-          "name": "paragraph"
+          "type": "FIELD",
+          "name": "content",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paragraph"
+          }
         },
         {
           "type": "REPEAT",
@@ -340,15 +456,16 @@
           ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ">>>> "
-          }
+          "type": "SYMBOL",
+          "name": "quote4_prefix"
         },
         {
-          "type": "SYMBOL",
-          "name": "paragraph"
+          "type": "FIELD",
+          "name": "content",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paragraph"
+          }
         },
         {
           "type": "REPEAT",
@@ -384,15 +501,16 @@
           ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ">>>>> "
-          }
+          "type": "SYMBOL",
+          "name": "quote5_prefix"
         },
         {
-          "type": "SYMBOL",
-          "name": "paragraph"
+          "type": "FIELD",
+          "name": "content",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paragraph"
+          }
         },
         {
           "type": "REPEAT",
@@ -424,15 +542,16 @@
           ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ">>>>>> "
-          }
+          "type": "SYMBOL",
+          "name": "quote6_prefix"
         },
         {
-          "type": "SYMBOL",
-          "name": "paragraph"
+          "type": "FIELD",
+          "name": "content",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paragraph"
+          }
         },
         {
           "type": "REPEAT",
@@ -453,6 +572,10 @@
   "conflicts": [
     [
       "paragraph"
+    ],
+    [
+      "paragraph",
+      "paragraph_break"
     ],
     [
       "quote1"

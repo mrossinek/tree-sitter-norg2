@@ -1,5 +1,10 @@
 [
   {
+    "type": "_paragraph_break",
+    "named": false,
+    "fields": {}
+  },
+  {
     "type": "carryover_tag",
     "named": true,
     "fields": {}
@@ -81,7 +86,18 @@
   {
     "type": "quote1",
     "named": true,
-    "fields": {},
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paragraph",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -91,7 +107,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "quote1_prefix",
           "named": true
         },
         {
@@ -120,7 +136,18 @@
   {
     "type": "quote2",
     "named": true,
-    "fields": {},
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paragraph",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -130,7 +157,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "quote2_prefix",
           "named": true
         },
         {
@@ -155,7 +182,18 @@
   {
     "type": "quote3",
     "named": true,
-    "fields": {},
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paragraph",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -165,7 +203,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "quote3_prefix",
           "named": true
         },
         {
@@ -186,7 +224,18 @@
   {
     "type": "quote4",
     "named": true,
-    "fields": {},
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paragraph",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -196,7 +245,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "quote4_prefix",
           "named": true
         },
         {
@@ -213,7 +262,18 @@
   {
     "type": "quote5",
     "named": true,
-    "fields": {},
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paragraph",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -223,7 +283,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "quote5_prefix",
           "named": true
         },
         {
@@ -236,7 +296,18 @@
   {
     "type": "quote6",
     "named": true,
-    "fields": {},
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paragraph",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -246,42 +317,39 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "quote6_prefix",
           "named": true
         }
       ]
     }
   },
   {
+    "type": "quote6_prefix",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
     "type": "+",
     "named": false
   },
   {
-    "type": "> ",
+    "type": ">",
     "named": false
   },
   {
-    "type": ">> ",
-    "named": false
-  },
-  {
-    "type": ">>> ",
-    "named": false
-  },
-  {
-    "type": ">>>> ",
-    "named": false
-  },
-  {
-    "type": ">>>>> ",
-    "named": false
-  },
-  {
-    "type": ">>>>>> ",
+    "type": ">>>>>>",
     "named": false
   },
   {
     "type": "_line_break",
+    "named": false
+  },
+  {
+    "type": "_punctuation",
     "named": false
   },
   {
@@ -291,6 +359,26 @@
   {
     "type": "_word",
     "named": false
+  },
+  {
+    "type": "quote1_prefix",
+    "named": true
+  },
+  {
+    "type": "quote2_prefix",
+    "named": true
+  },
+  {
+    "type": "quote3_prefix",
+    "named": true
+  },
+  {
+    "type": "quote4_prefix",
+    "named": true
+  },
+  {
+    "type": "quote5_prefix",
+    "named": true
   },
   {
     "type": "tag_name",

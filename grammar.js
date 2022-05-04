@@ -3,6 +3,7 @@ module.exports = grammar({
 
     conflicts: $ => [
         [$.paragraph],
+        [$.paragraph, $.paragraph_break],
 
         [$.quote1],
         [$.quote2],
@@ -17,13 +18,21 @@ module.exports = grammar({
             choice(
                 $.quote,
                 $.paragraph,
+                alias($.paragraph_break, "_paragraph_break"),
             ),
         ),
 
-        word: $ => /[a-zA-Z0-9]+/,
-        space: $ => /[\t\v ]+/,
+        word: _ => /[a-zA-Z0-9]+/,
+        space: _ => /[\t\v ]+/,
+        punctuation: _ => /[\.,]/,
 
-        line_break: _ => token.immediate('\n'),
+        line_break: _ => token.immediate(/[\n\r]/),
+        paragraph_break: $ => prec.dynamic(2,
+            seq(
+                alias($.line_break, "_line_break"),
+                alias($.line_break, "_line_break"),
+            ),
+        ),
 
         // Any regular text. A paragraph is made up of `paragraph_segment`
         // objects and line breaks.
@@ -59,6 +68,7 @@ module.exports = grammar({
         choice(
             alias($.word, "_word"),
             alias($.space, "_space"),
+            alias($.punctuation, "_punctuation"),
         ),
 
         carryover_tag: $ =>
@@ -81,6 +91,12 @@ module.exports = grammar({
             ),
         ),
 
+        quote1_prefix: $ => gen_quote_prefix($, 1),
+        quote2_prefix: $ => gen_quote_prefix($, 2),
+        quote3_prefix: $ => gen_quote_prefix($, 3),
+        quote4_prefix: $ => gen_quote_prefix($, 4),
+        quote5_prefix: $ => gen_quote_prefix($, 5),
+        quote6_prefix: $ => gen_quote_prefix($, 6),
         quote1: $ => gen_quote($, 1),
         quote2: $ => gen_quote($, 2),
         quote3: $ => gen_quote($, 3),
@@ -90,6 +106,19 @@ module.exports = grammar({
 
     }
 });
+
+function gen_quote_prefix($, level) {
+    if (level == 6) {
+        return seq(
+            token.immediate('>'.repeat(level)),
+            repeat(
+                token.immediate('>'),
+            ),
+            token.immediate(' '),
+        );
+    }
+    return token.immediate('>'.repeat(level) + ' ');
+}
 
 function gen_quote($, level) {
     lower_level_quotes = [];
@@ -101,9 +130,12 @@ function gen_quote($, level) {
     return seq(
         optional($.carryover_tag),
 
-        token.immediate('>'.repeat(level) + ' '),
+        $["quote" + level + "_prefix"],
 
-        $.paragraph,
+        field(
+            "content",
+            $.paragraph,
+        ),
 
         repeat(
             choice(
