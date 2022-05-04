@@ -1,6 +1,10 @@
 module.exports = grammar({
     name: 'norg2',
 
+    inline: $ => [
+        $.heading,
+    ],
+
     conflicts: $ => [
         [$.paragraph],
         [$.paragraph, $.paragraph_break],
@@ -16,6 +20,7 @@ module.exports = grammar({
     rules: {
         document: $ => repeat(
             choice(
+                $.heading,
                 $.quote,
                 $.paragraph,
                 alias($.paragraph_break, "_paragraph_break"),
@@ -27,7 +32,7 @@ module.exports = grammar({
         punctuation: _ => /[\.,]/,
 
         line_break: _ => token.immediate(/[\n\r]/),
-        paragraph_break: $ => prec.dynamic(2,
+        paragraph_break: $ => prec.dynamic(1,
             seq(
                 alias($.line_break, "_line_break"),
                 alias($.line_break, "_line_break"),
@@ -78,6 +83,29 @@ module.exports = grammar({
             alias($.line_break, "_line_break"),
         ),
 
+        heading: $ => choice(
+            $.heading1,
+            $.heading2,
+            $.heading3,
+            $.heading4,
+            $.heading5,
+            $.heading6,
+        ),
+
+
+        heading1_prefix: $ => gen_heading_prefix($, 1),
+        heading2_prefix: $ => gen_heading_prefix($, 2),
+        heading3_prefix: $ => gen_heading_prefix($, 3),
+        heading4_prefix: $ => gen_heading_prefix($, 4),
+        heading5_prefix: $ => gen_heading_prefix($, 5),
+        heading6_prefix: $ => gen_heading_prefix($, 6),
+        heading1: $ => gen_heading($, 1),
+        heading2: $ => gen_heading($, 2),
+        heading3: $ => gen_heading($, 3),
+        heading4: $ => gen_heading($, 4),
+        heading5: $ => gen_heading($, 5),
+        heading6: $ => gen_heading($, 6),
+
         quote: $ => prec.right(
             repeat1(
                 choice(
@@ -107,17 +135,64 @@ module.exports = grammar({
     }
 });
 
-function gen_quote_prefix($, level) {
+function gen_detached_mod_prefix($, icon, level) {
     if (level == 6) {
         return seq(
-            token.immediate('>'.repeat(level)),
+            token.immediate(icon.repeat(level)),
             repeat(
-                token.immediate('>'),
+                token.immediate(icon),
             ),
             token.immediate(' '),
         );
     }
-    return token.immediate('>'.repeat(level) + ' ');
+    return token.immediate(icon.repeat(level) + ' ');
+}
+
+function gen_heading_prefix($, level) {
+    return gen_detached_mod_prefix($, '*', level);
+}
+
+function gen_heading($, level) {
+    lower_level_headings = [];
+
+    for (let i = 0; i + level < 6; i++) {
+        lower_level_headings[i] = $["heading" + (i + 1 + level)]
+    }
+
+    return prec.right(0,
+        seq(
+            optional($.carryover_tag),
+
+            $["heading" + level + "_prefix"],
+
+            field(
+                "title",
+                $.paragraph_segment,
+            ),
+
+            repeat(
+                prec(1,
+                    alias($.line_break, "_line_break"),
+                ),
+            ),
+
+            field(
+                "content",
+                repeat(
+                    choice(
+                        $.paragraph,
+                        $.quote,
+
+                        ...lower_level_headings,
+                    ),
+                ),
+            ),
+        ),
+    );
+}
+
+function gen_quote_prefix($, level) {
+    return gen_detached_mod_prefix($, '>', level);
 }
 
 function gen_quote($, level) {

@@ -1,0 +1,207 @@
+================================================================================
+Level 1 Headings
+================================================================================
+* This is a heading
+  In this heading there is some text
+
+--------------------------------------------------------------------------------
+
+(document
+  (heading1
+    (heading1_prefix)
+    title: (paragraph_segment)
+    content: (paragraph
+      (paragraph_segment))))
+
+================================================================================
+Level 2 Headings
+================================================================================
+** This is a level 2 heading
+   That has text underneath
+
+* And here is a level 1 heading
+** With a level 2 heading
+   And some content
+
+--------------------------------------------------------------------------------
+
+(document
+  (heading2
+    (heading2_prefix)
+    title: (paragraph_segment)
+    content: (paragraph
+      (paragraph_segment)))
+  (heading1
+    (heading1_prefix)
+    title: (paragraph_segment)
+    content: (heading2
+      (heading2_prefix)
+      title: (paragraph_segment)
+      content: (paragraph
+        (paragraph_segment)))))
+
+================================================================================
+Level 3 Headings
+================================================================================
+*** This is a level 3 heading
+    That has text underneath
+
+* And here is a level 1 heading
+** With a level 2 heading
+   And some content
+*** Then a level 3 heading
+    With more content
+
+--------------------------------------------------------------------------------
+
+(document
+  (heading3
+    (heading3_prefix)
+    title: (paragraph_segment)
+    content: (paragraph
+      (paragraph_segment)))
+  (heading1
+    (heading1_prefix)
+    title: (paragraph_segment)
+    content: (heading2
+      (heading2_prefix)
+      title: (paragraph_segment)
+      content: (paragraph
+        (paragraph_segment))
+      content: (heading3
+        (heading3_prefix)
+        title: (paragraph_segment)
+        content: (paragraph
+          (paragraph_segment))))))
+
+================================================================================
+Level 4 Headings
+================================================================================
+**** This is a level 4 heading
+     That has text underneath
+
+* And here is a level 1 heading
+** With a level 2 heading
+   And some content
+*** Then a level 3 heading
+    With more content
+**** And a level 4 heading
+     With a lil content
+
+--------------------------------------------------------------------------------
+
+(document
+  (heading4
+    (heading4_prefix)
+    title: (paragraph_segment)
+    content: (paragraph
+      (paragraph_segment)))
+  (heading1
+    (heading1_prefix)
+    title: (paragraph_segment)
+    content: (heading2
+      (heading2_prefix)
+      title: (paragraph_segment)
+      content: (paragraph
+        (paragraph_segment))
+      content: (heading3
+        (heading3_prefix)
+        title: (paragraph_segment)
+        content: (paragraph
+          (paragraph_segment))
+        content: (heading4
+          (heading4_prefix)
+          title: (paragraph_segment)
+          content: (paragraph
+            (paragraph_segment)))))))
+
+================================================================================
+Level 5 Headings
+================================================================================
+***** This is a level 5 heading
+      That has text underneath
+
+* And here is a level 1 heading
+** With a level 2 heading
+   And some content
+*** Then a level 3 heading
+    With more content
+**** And a level 4 heading
+***** And then a level 5 heading
+
+--------------------------------------------------------------------------------
+
+(document
+  (heading5
+    (heading5_prefix)
+    title: (paragraph_segment)
+    content: (paragraph
+      (paragraph_segment)))
+  (heading1
+    (heading1_prefix)
+    title: (paragraph_segment)
+    content: (heading2
+      (heading2_prefix)
+      title: (paragraph_segment)
+      content: (paragraph
+        (paragraph_segment))
+      content: (heading3
+        (heading3_prefix)
+        title: (paragraph_segment)
+        content: (paragraph
+          (paragraph_segment))
+        content: (heading4
+          (heading4_prefix)
+          title: (paragraph_segment)
+          content: (heading5
+            (heading5_prefix)
+            title: (paragraph_segment)))))))
+
+================================================================================
+Level 6 Headings
+================================================================================
+****** This is a level 6 heading
+      That has text underneath
+
+* And here is a level 1 heading
+** With a level 2 heading
+   And some content
+*** Then a level 3 heading
+    With more content
+**** And a level 4 heading
+***** And then a level 5 heading
+      Content
+****** And finally a level 6 heading
+
+--------------------------------------------------------------------------------
+
+(document
+  (heading6
+    (heading6_prefix)
+    title: (paragraph_segment)
+    content: (paragraph
+      (paragraph_segment)))
+  (heading1
+    (heading1_prefix)
+    title: (paragraph_segment)
+    content: (heading2
+      (heading2_prefix)
+      title: (paragraph_segment)
+      content: (paragraph
+        (paragraph_segment))
+      content: (heading3
+        (heading3_prefix)
+        title: (paragraph_segment)
+        content: (paragraph
+          (paragraph_segment))
+        content: (heading4
+          (heading4_prefix)
+          title: (paragraph_segment)
+          content: (heading5
+            (heading5_prefix)
+            title: (paragraph_segment)
+            content: (paragraph
+              (paragraph_segment))
+            content: (heading6
+              (heading6_prefix)
+              title: (paragraph_segment))))))))
