@@ -11,5 +11,5 @@ Carryover Tag on quote
   (quote
     (quote1)
     (quote1
-      (carryover_tag))
-      (quote2)))
+      (carryover_tag)
+      (quote2))))
