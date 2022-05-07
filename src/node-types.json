@@ -5,21 +5,6 @@
     "fields": {}
   },
   {
-    "type": "bold",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "bold",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "carryover_tag",
     "named": true,
     "fields": {}
@@ -33,30 +18,6 @@
       "required": false,
       "types": [
         {
-          "type": "heading1",
-          "named": true
-        },
-        {
-          "type": "heading2",
-          "named": true
-        },
-        {
-          "type": "heading3",
-          "named": true
-        },
-        {
-          "type": "heading4",
-          "named": true
-        },
-        {
-          "type": "heading5",
-          "named": true
-        },
-        {
-          "type": "heading6",
-          "named": true
-        },
-        {
           "type": "paragraph",
           "named": true
         },
@@ -66,335 +27,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "heading1",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "heading2",
-            "named": true
-          },
-          {
-            "type": "heading3",
-            "named": true
-          },
-          {
-            "type": "heading4",
-            "named": true
-          },
-          {
-            "type": "heading5",
-            "named": true
-          },
-          {
-            "type": "heading6",
-            "named": true
-          },
-          {
-            "type": "paragraph",
-            "named": true
-          },
-          {
-            "type": "quote",
-            "named": true
-          }
-        ]
-      },
-      "title": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paragraph_segment",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "carryover_tag",
-          "named": true
-        },
-        {
-          "type": "heading1_prefix",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "heading2",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "heading3",
-            "named": true
-          },
-          {
-            "type": "heading4",
-            "named": true
-          },
-          {
-            "type": "heading5",
-            "named": true
-          },
-          {
-            "type": "heading6",
-            "named": true
-          },
-          {
-            "type": "paragraph",
-            "named": true
-          },
-          {
-            "type": "quote",
-            "named": true
-          }
-        ]
-      },
-      "title": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paragraph_segment",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "carryover_tag",
-          "named": true
-        },
-        {
-          "type": "heading2_prefix",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "heading3",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "heading4",
-            "named": true
-          },
-          {
-            "type": "heading5",
-            "named": true
-          },
-          {
-            "type": "heading6",
-            "named": true
-          },
-          {
-            "type": "paragraph",
-            "named": true
-          },
-          {
-            "type": "quote",
-            "named": true
-          }
-        ]
-      },
-      "title": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paragraph_segment",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "carryover_tag",
-          "named": true
-        },
-        {
-          "type": "heading3_prefix",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "heading4",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "heading5",
-            "named": true
-          },
-          {
-            "type": "heading6",
-            "named": true
-          },
-          {
-            "type": "paragraph",
-            "named": true
-          },
-          {
-            "type": "quote",
-            "named": true
-          }
-        ]
-      },
-      "title": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paragraph_segment",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "carryover_tag",
-          "named": true
-        },
-        {
-          "type": "heading4_prefix",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "heading5",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "heading6",
-            "named": true
-          },
-          {
-            "type": "paragraph",
-            "named": true
-          },
-          {
-            "type": "quote",
-            "named": true
-          }
-        ]
-      },
-      "title": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paragraph_segment",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "carryover_tag",
-          "named": true
-        },
-        {
-          "type": "heading5_prefix",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "heading6",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "paragraph",
-            "named": true
-          },
-          {
-            "type": "quote",
-            "named": true
-          }
-        ]
-      },
-      "title": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paragraph_segment",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "carryover_tag",
-          "named": true
-        },
-        {
-          "type": "heading6_prefix",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "heading6_prefix",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "paragraph",
@@ -416,11 +48,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "bold",
+          "type": "carryover_tag",
           "named": true
         }
       ]
@@ -711,14 +343,6 @@
     "named": false
   },
   {
-    "type": "*",
-    "named": false
-  },
-  {
-    "type": "******",
-    "named": false
-  },
-  {
     "type": "+",
     "named": false
   },
@@ -745,26 +369,6 @@
   {
     "type": "_word",
     "named": false
-  },
-  {
-    "type": "heading1_prefix",
-    "named": true
-  },
-  {
-    "type": "heading2_prefix",
-    "named": true
-  },
-  {
-    "type": "heading3_prefix",
-    "named": true
-  },
-  {
-    "type": "heading4_prefix",
-    "named": true
-  },
-  {
-    "type": "heading5_prefix",
-    "named": true
   },
   {
     "type": "quote1_prefix",
