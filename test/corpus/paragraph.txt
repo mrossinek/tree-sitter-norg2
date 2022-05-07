@@ -1,0 +1,55 @@
+================================================================================
+Normal paragraph
+================================================================================
+This is a normal paragraph.
+It has multiple lines.
+
+This is the next paragraph.
+--------------------------------------------------------------------------------
+
+(document
+  (paragraph
+    (paragraph_segment)
+    (paragraph_segment))
+  (paragraph
+    (paragraph_segment)))
+
+================================================================================
+Carryover Tag
+================================================================================
+This is a paragraph where
++color
+this segment has a color tag.
+--------------------------------------------------------------------------------
+
+(document
+  (paragraph
+    (paragraph_segment)
+    (paragraph_segment
+      (carryover_tag))))
+
+================================================================================
+Long paragraph
+================================================================================
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+I am a line in the same paragraph.
+--------------------------------------------------------------------------------
+
+(document
+  (paragraph
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)
+    (paragraph_segment)))
